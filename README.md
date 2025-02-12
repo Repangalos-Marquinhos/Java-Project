@@ -8,8 +8,8 @@ Funcionalidades:
 
 Usuario:
 -Cadastrar Itens;
--Historico de Movimentação;
 -Controle de Lotes;
+-Historico de Movimentação;
 -Usuários e Permissões
 -Otimização de Roteirização
 -Admnistrar Prazos e Urgencia;
@@ -22,5 +22,9 @@ Transportadora:
 -Atualizar Movimentação;
 
 Classes:
--Pedido: id, nome, tamanho, 
+-Principal
+-Pedido
+-Itens
+-Transportadora
+
 
