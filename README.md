@@ -22,15 +22,23 @@ Usuario:
 
 
 Transportadora:
+
 -Alimentação de Estoque;
+
 -Cálculo de Custos e Frete;
+
 -Retirar Produtos;
+
 -Atualizar Movimentação;
 
 Classes:
+
 -Principal
+
 -Pedido
+
 -Itens
+
 -Transportadora
 
 
