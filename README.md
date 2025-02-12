@@ -23,6 +23,7 @@ Transportadora:
 
 Classes:
 -Principal
+-Usuario
 -Pedido
 -Itens
 -Transportadora
