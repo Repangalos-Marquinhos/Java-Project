@@ -3,6 +3,7 @@
 Projeto Java
 
 Gerenciamento de Centro de Distribuição
+-----------------------------------------------------------------------------------
 
 Funcionalidades:
 
@@ -20,6 +21,7 @@ Usuario:
 
 -Admnistrar Prazos e Urgencia;
 
+-----------------------------------------------------------------------------------
 
 Transportadora:
 
@@ -30,6 +32,8 @@ Transportadora:
 -Retirar Produtos;
 
 -Atualizar Movimentação;
+
+-----------------------------------------------------------------------------------
 
 Classes:
 
