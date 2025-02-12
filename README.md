@@ -7,11 +7,17 @@ Gerenciamento de Centro de Distribuição
 Funcionalidades:
 
 Usuario:
+
 -Cadastrar Itens;
+
 -Controle de Lotes;
+
 -Historico de Movimentação;
+
 -Usuários e Permissões
+
 -Otimização de Roteirização
+
 -Admnistrar Prazos e Urgencia;
 
 
