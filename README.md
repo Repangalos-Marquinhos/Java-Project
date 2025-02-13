@@ -9,11 +9,11 @@ Funcionalidades:
 
 Usuario:
 
--Cadastrar Itens;
+-Cadastrar Itens; --
 
 -Controle de Lotes;
 
--Historico de Movimentação;
+-Historico de Movimentação; 
 
 -Usuários e Permissões
 
@@ -38,11 +38,9 @@ Transportadora:
 Classes:
 
 -Principal
-<<<<<<< HEAD
--Usuario
-=======
 
->>>>>>> ce26a34c9194d098fbd2d32b8670a531ea092036
+-Usuario
+
 -Pedido
 
 -Itens
