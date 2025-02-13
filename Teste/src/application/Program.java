@@ -24,7 +24,9 @@ public class Program {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Cadastrar Produto");
+                    System.out.println("Cadastrar Produto: ");
+                    System.out.println("Digite o nome do Produto: ");
+                    String name = sc.nextLine();
                     System.out.println("Digite o id do produto: ");
                     int id = sc.nextInt();
                     System.out.println("Digite o lote do produto: ");
@@ -42,7 +44,7 @@ public class Program {
                     String prazo = sc.nextLine();
 
                     Item item = new Item(id, lote, quantidade, tamanho, descricao, categoria, prazo);
-
+                    
                     System.out.println(item);
                     
                     break;

@@ -10,6 +10,10 @@ public class Item {
     private String categoria;
     private String prazo;
 
+    public Item(){
+        
+    }
+
     public Item(int id, int lote, int quantidade, double tamanho, String descricao, String categoria, String prazo) {
         this.id = id;
         this.lote = lote;
