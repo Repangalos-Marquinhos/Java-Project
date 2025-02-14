@@ -1,18 +1,19 @@
 package application;
-import entities.Item;
 
+import entities.Item;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Program {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        int opcao = 0;
+        List<Item> listaItens = new ArrayList<>(); // Lista para armazenar os itens
+        int opcao;
 
         do {
             System.out.println("+---------------------------------+");
-            System.out.println("|   selecione a opção desejada    |");
+            System.out.println("|   Selecione a opção desejada    |");
             System.out.println("|---------------------------------|");
             System.out.println("| 1- Cadastrar Produto            |");
             System.out.println("| 2- Retirar Produto              |");
@@ -21,52 +22,71 @@ public class Program {
             System.out.println("+---------------------------------+");
 
             opcao = sc.nextInt();
+            sc.nextLine(); // Consumir a quebra de linha
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Cadastrar Produto: ");
-                    System.out.println("Digite o nome do Produto: ");
-                    String name = sc.nextLine();
-                    System.out.println("Digite o id do produto: ");
+                    System.out.println("Cadastrar Produto:");
+                    
+                    System.out.print("Digite o id do produto: ");
                     int id = sc.nextInt();
-                    System.out.println("Digite o lote do produto: ");
+                    System.out.print("Digite o lote do produto: ");
                     int lote = sc.nextInt();
-                    System.out.println("Digite a quantidade do produto: ");
+                    System.out.print("Digite a quantidade do produto: ");
                     int quantidade = sc.nextInt();
-                    System.out.println("Digite o tamanho do produto: ");
+                    System.out.print("Digite o tamanho do produto: ");
                     double tamanho = sc.nextDouble();
-                    sc.nextLine();
-                    System.out.println("Digite a descrição do produto: ");
+                    sc.nextLine(); // Consumir a quebra de linha
+                    System.out.print("Digite a descrição do produto: ");
                     String descricao = sc.nextLine();
-                    System.out.println("Digite a categoria do produto: ");
+                    System.out.print("Digite a categoria do produto: ");
                     String categoria = sc.nextLine();
-                    System.out.println("Digite o prazo do produto: ");
+                    System.out.print("Digite o prazo do produto: ");
                     String prazo = sc.nextLine();
 
+                    // Criar um novo item e adicionar à lista
                     Item item = new Item(id, lote, quantidade, tamanho, descricao, categoria, prazo);
-                    
-                    System.out.println(item);
-                    
+                    listaItens.add(item);
+
+                    System.out.println("Produto cadastrado com sucesso!\n");
                     break;
+
                 case 2:
-                    System.out.println("Retirar Produto");
+                    System.out.println("Retirar Produto:");
+                    System.out.print("Digite o ID do produto que deseja retirar: ");
+                    int idRemover = sc.nextInt();
+                    
+                    // Remover o item da lista pelo ID
+                    boolean removido = listaItens.removeIf(itemAtual -> itemAtual.getId() == idRemover);
+                    
+                    if (removido) {
+                        System.out.println("Produto removido com sucesso!\n");
+                    } else {
+                        System.out.println("Produto não encontrado.\n");
+                    }
                     break;
+
                 case 3:
-                    System.out.println("Listar Produtos");
+                    System.out.println("Listar Produtos:");
+                    if (listaItens.isEmpty()) {
+                        System.out.println("Nenhum produto cadastrado.\n");
+                    } else {
+                        for (Item i : listaItens) {
+                            System.out.println(i);
+                        }
+                    }
                     break;
+
                 case 4:
-                    System.out.println("Sair");
+                    System.out.println("Saindo...");
                     break;
+
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção inválida\n");
                     break;
             }
-        }while(opcao != 4);
-
-
-
+        } while (opcao != 4);
 
         sc.close();
     }
-
 }
