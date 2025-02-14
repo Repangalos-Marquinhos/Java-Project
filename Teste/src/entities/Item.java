@@ -10,8 +10,8 @@ public class Item {
     private String categoria;
     private String prazo;
 
-    public Item(){
-        
+    public Item() {
+
     }
 
     public Item(int id, int lote, int quantidade, double tamanho, String descricao, String categoria, String prazo) {
@@ -25,7 +25,8 @@ public class Item {
     }
 
     // Getters and Setters
-    // Id não tem setter pois é um valor qu so podera ser alterado pelo metodo de cadastro
+    // Id não tem setter pois é um valor qu so podera ser alterado pelo metodo de
+    // cadastro
     public int getId() {
         return id;
     }
@@ -33,15 +34,15 @@ public class Item {
     public int getLote() {
         return lote;
     }
-    
+
     public void setLote(int lote) {
-    this.lote = lote;
+        this.lote = lote;
     }
 
     public int getQuantidade() {
         return quantidade;
     }
-    
+
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
@@ -49,15 +50,15 @@ public class Item {
     public double getTamanho() {
         return tamanho;
     }
-    
+
     public void setTamanho(double tamanho) {
         this.tamanho = tamanho;
     }
-    
+
     public String getDescricao() {
         return descricao;
     }
-    
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -65,7 +66,7 @@ public class Item {
     public String getCategoria() {
         return categoria;
     }
-    
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
@@ -73,14 +74,15 @@ public class Item {
     public String getPrazo() {
         return prazo;
     }
-    
+
     public void setPrazo(String prazo) {
         this.prazo = prazo;
     }
 
     // toString
     public String toString() {
-        return "ID: " + id + "\nLote: " + lote + "\nQuantidade: " + quantidade + "\nTamanho: " + tamanho + "\nDescrição: " + descricao + "\nCategoria: " + categoria + "\nPrazo: " + prazo;
+        return "ID: " + id + "\nLote: " + lote + "\nQuantidade: " + quantidade + "\nTamanho: " + tamanho
+                + "\nDescrição: " + descricao + "\nCategoria: " + categoria + "\nPrazo: " + prazo;
     }
 
     // Método
@@ -96,21 +98,10 @@ public class Item {
     public void cadastrarProduto(int quantidade) {
         this.quantidade += quantidade;
     }
-    
+
     public void listarProdutos() {
-        System.out.println("ID: " + id + "\nLote: " + lote + "\nQuantidade: " + quantidade + "\nTamanho: " + tamanho + "\nDescrição: " + descricao + "\nCategoria: " + categoria + "\nPrazo: " + prazo);
+        System.out.println("ID: " + id + "\nLote: " + lote + "\nQuantidade: " + quantidade + "\nTamanho: " + tamanho
+                + "\nDescrição: " + descricao + "\nCategoria: " + categoria + "\nPrazo: " + prazo);
     }
-    
-    
 
-
-
-
-
-
-
-
-
-    
-    
 }

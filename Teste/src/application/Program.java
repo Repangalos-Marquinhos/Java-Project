@@ -26,8 +26,8 @@ public class Program {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Cadastrar Produto:");
-                    
+                    System.out.println("-----------Cadastrar Produto-----------");
+
                     System.out.print("Digite o id do produto: ");
                     int id = sc.nextInt();
                     System.out.print("Digite o lote do produto: ");
@@ -55,10 +55,10 @@ public class Program {
                     System.out.println("Retirar Produto:");
                     System.out.print("Digite o ID do produto que deseja retirar: ");
                     int idRemover = sc.nextInt();
-                    
+
                     // Remover o item da lista pelo ID
                     boolean removido = listaItens.removeIf(itemAtual -> itemAtual.getId() == idRemover);
-                    
+
                     if (removido) {
                         System.out.println("Produto removido com sucesso!\n");
                     } else {
