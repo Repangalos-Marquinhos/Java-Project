@@ -87,7 +87,7 @@ public class Item {
 
     // Método
 
-    public void retirarProduto(int quantidade) {
+    public void retirarQntProduto(int quantidade) {
         if (this.quantidade >= quantidade) {
             this.quantidade -= quantidade;
         } else {
@@ -95,7 +95,7 @@ public class Item {
         }
     }
 
-    public void cadastrarProduto(int quantidade) {
+    public void cadastrarQntProduto(int quantidade) {
         this.quantidade += quantidade;
     }
 

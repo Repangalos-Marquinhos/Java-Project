@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "Teste\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\joaof\\Downloads\\gson-2.12.1.jar"
+    ]
+}

@@ -1,6 +1,7 @@
 package application;
 
 import entities.Item;
+import services.GoogleMapsService; // Importando o serviço de cálculo de distância
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +19,8 @@ public class Program {
             System.out.println("| 1- Cadastrar Produto            |");
             System.out.println("| 2- Retirar Produto              |");
             System.out.println("| 3- Listar Produtos              |");
-            System.out.println("| 4- Sair                         |");
+            System.out.println("| 4- Calcular Distância           |");
+            System.out.println("| 5- Sair                         |");
             System.out.println("+---------------------------------+");
 
             opcao = sc.nextInt();
@@ -78,6 +80,19 @@ public class Program {
                     break;
 
                 case 4:
+                    System.out.println("Digite o endereço de destino:");
+                    String destino = sc.nextLine();
+
+                    // Chamando a API do Google Maps para calcular a distância
+                    String resultado = GoogleMapsService.calcularDistancia(destino);
+
+                    // Exibindo o resultado da distância
+                    System.out.println("\n--- Resultado da Distância ---");
+                    System.out.println(resultado);
+                    System.out.println("------------------------------\n");
+                    break;
+
+                case 5:
                     System.out.println("Saindo...");
                     break;
 
@@ -85,7 +100,7 @@ public class Program {
                     System.out.println("Opção inválida\n");
                     break;
             }
-        } while (opcao != 4);
+        } while (opcao != 5);
 
         sc.close();
     }

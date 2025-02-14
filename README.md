@@ -25,11 +25,11 @@ Usuario:
 
 Transportadora:
 
--Alimentação de Estoque;
+-Alimentação de Estoque; --
 
 -Cálculo de Custos e Frete;
 
--Retirar Produtos;
+-Retirar Produtos; -
 
 -Atualizar Movimentação;
 
