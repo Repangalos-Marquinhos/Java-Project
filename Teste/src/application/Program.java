@@ -1,7 +1,8 @@
 package application;
 
 import entities.Item;
-import services.GoogleMapsService; // Importando o serviço de cálculo de distância
+import entities.Pedido;
+import services.GoogleMapsService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,27 +10,30 @@ import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        List<Item> listaItens = new ArrayList<>(); // Lista para armazenar os itens
+        List<Item> listaItens = new ArrayList<>();
+        List<Pedido> listaPedidos = new ArrayList<>();
         int opcao;
 
         do {
+            //? Menu
             System.out.println("+---------------------------------+");
             System.out.println("|   Selecione a opção desejada    |");
             System.out.println("|---------------------------------|");
             System.out.println("| 1- Cadastrar Produto            |");
             System.out.println("| 2- Retirar Produto              |");
             System.out.println("| 3- Listar Produtos              |");
-            System.out.println("| 4- Calcular Distância           |");
-            System.out.println("| 5- Sair                         |");
+            System.out.println("| 4- Criar Pedido                 |");
+            System.out.println("| 5- Listar Pedidos               |");
+            System.out.println("| 6- Calcular Distância           |");
+            System.out.println("| 7- Sair                         |");
             System.out.println("+---------------------------------+");
 
             opcao = sc.nextInt();
-            sc.nextLine(); // Consumir a quebra de linha
+            sc.nextLine();
 
             switch (opcao) {
                 case 1:
                     System.out.println("-----------Cadastrar Produto-----------");
-
                     System.out.print("Digite o id do produto: ");
                     int id = sc.nextInt();
                     System.out.print("Digite o lote do produto: ");
@@ -38,7 +42,7 @@ public class Program {
                     int quantidade = sc.nextInt();
                     System.out.print("Digite o tamanho do produto: ");
                     double tamanho = sc.nextDouble();
-                    sc.nextLine(); // Consumir a quebra de linha
+                    sc.nextLine();
                     System.out.print("Digite a descrição do produto: ");
                     String descricao = sc.nextLine();
                     System.out.print("Digite a categoria do produto: ");
@@ -46,26 +50,16 @@ public class Program {
                     System.out.print("Digite o prazo do produto: ");
                     String prazo = sc.nextLine();
 
-                    // Criar um novo item e adicionar à lista
                     Item item = new Item(id, lote, quantidade, tamanho, descricao, categoria, prazo);
                     listaItens.add(item);
-
                     System.out.println("Produto cadastrado com sucesso!\n");
                     break;
 
                 case 2:
-                    System.out.println("Retirar Produto:");
                     System.out.print("Digite o ID do produto que deseja retirar: ");
                     int idRemover = sc.nextInt();
-
-                    // Remover o item da lista pelo ID
                     boolean removido = listaItens.removeIf(itemAtual -> itemAtual.getId() == idRemover);
-
-                    if (removido) {
-                        System.out.println("Produto removido com sucesso!\n");
-                    } else {
-                        System.out.println("Produto não encontrado.\n");
-                    }
+                    System.out.println(removido ? "Produto removido com sucesso!\n" : "Produto não encontrado.\n");
                     break;
 
                 case 3:
@@ -80,19 +74,52 @@ public class Program {
                     break;
 
                 case 4:
-                    System.out.println("Digite o endereço de destino:");
+                    System.out.println("----------- Criar Pedido -----------");
+                    System.out.print("Digite o ID do pedido: ");
+                    int idPedido = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Digite o endereço de entrega: ");
+                    String endereco = sc.nextLine();
+                    System.out.print("Digite a data de entrega: ");
+                    String deadline = sc.nextLine();
+
+                    System.out.println("Digite os IDs dos produtos do pedido (separados por espaço): ");
+                    String[] idsProdutos = sc.nextLine().split(" ");
+                    List<Integer> itensPedido = new ArrayList<>();
+                    for (String idStr : idsProdutos) {
+                        itensPedido.add(Integer.parseInt(idStr));
+                    }
+                    
+                    Pedido pedido = new Pedido(idPedido, endereco, deadline, itensPedido);
+                    listaPedidos.add(pedido);
+                    System.out.println("Pedido criado com sucesso!\n");
+                    
+                    break;
+
+                case 5:
+                System.out.println("Listar Pedidos:");
+                if (listaPedidos.isEmpty()) {
+                    System.out.println("Nenhum pedido cadastrado.\n");
+                } else {
+                    for (Pedido p : listaPedidos) {
+                        System.out.println("ID: " + p.getId() + "\nEndereço: " + p.getEndereco() +
+                                "\nData de entrega: " + p.getDeadline() + "\nItens: " + p.getItens() + "\n");
+                    }
+                
+                
+                    }
+                    break;
+
+                case 6:
+                    System.out.print("Digite o endereço de destino: ");
                     String destino = sc.nextLine();
-
-                    // Chamando a API do Google Maps para calcular a distância
                     String resultado = GoogleMapsService.calcularDistancia(destino);
-
-                    // Exibindo o resultado da distância
                     System.out.println("\n--- Resultado da Distância ---");
                     System.out.println(resultado);
                     System.out.println("------------------------------\n");
                     break;
 
-                case 5:
+                case 7:
                     System.out.println("Saindo...");
                     break;
 
@@ -100,7 +127,7 @@ public class Program {
                     System.out.println("Opção inválida\n");
                     break;
             }
-        } while (opcao != 5);
+        } while (opcao != 7);
 
         sc.close();
     }
