@@ -114,9 +114,9 @@ public class Program {
                     System.out.print("Digite o endereço de destino: ");
                     String destino = sc.nextLine();
                     String resultado = GoogleMapsService.calcularDistancia(destino);
-                    System.out.println("\n--- Resultado da Distância ---");
-                    System.out.println(resultado);
-                    System.out.println("------------------------------\n");
+                    System.out.println("\n-------- Resultado da Distância ------------------");
+                    System.out.println("|   " + resultado + "   |");
+                    System.out.println("--------------------------------------------------\n");
                     break;
 
                 case 7:
