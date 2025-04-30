@@ -21,10 +21,10 @@ public class Program {
             System.out.println("|---------------------------------|");
             System.out.println("| 1- Cadastrar Produto            |");
             System.out.println("| 2- Retirar Produto              |");
-            System.out.println("| 3- Listar Produtos              |");
+            System.out.println("| 3- Listar Pedidos               |");
+            System.out.println("| 6- CalcularProdutos              |");
             System.out.println("| 4- Criar Pedido                 |");
-            System.out.println("| 5- Listar Pedidos               |");
-            System.out.println("| 6- Calcular Distância           |");
+            System.out.println("| 5- Listar  Distância           |");
             System.out.println("| 7- Sair                         |");
             System.out.println("+---------------------------------+");
 
