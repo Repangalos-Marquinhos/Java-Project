@@ -3,20 +3,55 @@ package application;
 import entities.Item;
 import entities.Pedido;
 import services.GoogleMapsService;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Program {
-    private static Scanner sc = new Scanner(System.in);
-    private static List<Item> listaItens = new ArrayList<>();
-    private static List<Pedido> listaPedidos = new ArrayList<>();
 
-    public static void main(String[] args) {
-        int opcao;
+  
+  public static void main(String[] args) {
+  Scanner sc = new Scanner(System.in);
+  List<Item> listaItens = new ArrayList<>();
+  List<Pedido> listaPedidos = new ArrayList<>();
+  
+  private static entities.Usuarios adm = new entities.Usuarios("admin", "123");
+  private static entities.Usuarios user = new entities.Usuarios("user", "123");
+
+  private static Scanner sc = new Scanner(System.in);
+  private static List<Item> listaItens = new ArrayList<>();
+  private static List<Pedido> listaPedidos = new ArrayList<>();
+        
+  int opcao;
+        
 
         do {
-            exibirMenu();
+           
+            System.out.println("----------- Login -----------");
+            System.out.print("Digite seu usuário: ");
+            String usuario_input = sc.nextLine();
+            System.out.print("Digite sua senha: ");
+            String senha_input = sc.nextLine();
+
+            
+                
+                if (usuario_input.equals(adm.getUsuario()) && senha_input.equals(adm.getSenha())) {
+                    System.out.println("Login realizado com sucesso!\n");
+                    exibirMenuADM();
+                    
+                    break;
+                } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
+                    System.out.println("Login realizado com sucesso!\n");
+                    exibirMenuUSER();
+                    
+                    break;
+                } else {
+                    System.out.println("Usuário ou senha inválidos. Tente novamente.\n");
+                    
+                }
+            
             opcao = sc.nextInt();
             sc.nextLine();
 
@@ -52,9 +87,10 @@ public class Program {
         } while (opcao != 8);
 
         sc.close();
-    }
 
-    private static void exibirMenu() {
+    }
+        
+    private static void exibirMenuADM() {
         System.out.println("+---------------------------------+");
         System.out.println("|   Selecione a opção desejada    |");
         System.out.println("|---------------------------------|");
@@ -64,10 +100,25 @@ public class Program {
         System.out.println("| 4- Criar Pedido                 |");
         System.out.println("| 5- Listar Pedidos               |");
         System.out.println("| 6- Calcular Distância           |");
-        System.out.println("| 7- Volume do Galpão             |");
-        System.out.println("| 8- Sair                         |");
+        System.out.println("| 7- Sair                         |");
         System.out.println("+---------------------------------+");
     }
+
+    private static void exibirMenuUSER() {
+        System.out.println("+---------------------------------+");
+        System.out.println("|   Selecione a opção desejada    |");
+        System.out.println("|---------------------------------|");
+        System.out.println("| 1- Cadastrar Produto            |");
+        System.out.println("| 2- Retirar Produto              |");
+        System.out.println("| 3- Listar Produtos              |");
+        System.out.println("| 4- Criar Pedido                 |");
+        System.out.println("| 5- Listar Pedidos               |");
+        System.out.println("| 6- Calcular Distância           |");
+        System.out.println("| 7- Sair                         |");
+        System.out.println("+---------------------------------+");
+    }
+     
+    
 
     private static void cadastrarProduto() {
         System.out.println("-----------Cadastrar Produto-----------");
@@ -152,6 +203,7 @@ public class Program {
         System.out.println("|   " + resultado + "   |");
         System.out.println("--------------------------------------------------\n");
     }
+
 
     private static void volumeGalpao(){
         int x = 0;
