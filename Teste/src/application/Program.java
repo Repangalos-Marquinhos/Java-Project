@@ -29,9 +29,6 @@ public class Program {
 
         int opcao = 0;
 
-        // Scanner redundante (já existe um estático), poderia ser removido
-        Scanner sc = new Scanner(System.in);
-
         do {
             // Tela de login
             System.out.println("----------- Login -----------");
@@ -47,7 +44,7 @@ public class Program {
                 exibirMenuADM(); // Exibe menu de administrador
                 break;
 
-            // Verifica se é usuário comum
+                // Verifica se é usuário comum
             } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
                 System.out.println("Login realizado com sucesso!\n");
                 exibirMenuUSER(); // Exibe menu de usuário
