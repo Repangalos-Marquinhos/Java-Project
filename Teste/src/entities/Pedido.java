@@ -25,15 +25,40 @@ public class Pedido {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getEndereco() {
         return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getDeadline() {
         return deadline;
     }
 
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public List<Integer> getItens() {
         return itens;
     }
+
+    public void setItens(List<Integer> itens) {
+        this.itens = itens;
+    }
+
 }

@@ -1,4 +1,4 @@
-package application; // Define o pacote onde a classe está inserida
+package application;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,29 +29,32 @@ public class Program {
 
         int opcao = 0;
 
+        System.out.println("----------- Login -----------");
+        System.out.print("Digite seu usuário: ");
+        String usuario_input = sc.nextLine();
+
+        System.out.print("Digite sua senha: ");
+        String senha_input = sc.nextLine();
+
         do {
-            // Tela de login
-            System.out.println("----------- Login -----------");
-            System.out.print("Digite seu usuário: ");
-            String usuario_input = sc.nextLine();
+            while (true) {
+                // Tela de login
+                // Verifica se é admin
+                if (usuario_input.equals(adm.getUsuario()) && senha_input.equals(adm.getSenha())) {
+                    System.out.println("Login realizado com sucesso!\n");
+                    exibirMenuADM(); // Exibe menu de administrador
+                    break;
 
-            System.out.print("Digite sua senha: ");
-            String senha_input = sc.nextLine();
+                    // Verifica se é usuário comum
+                } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
+                    System.out.println("Login realizado com sucesso!\n");
+                    exibirMenuUSER(); // Exibe menu de usuário
+                    break;
 
-            // Verifica se é admin
-            if (usuario_input.equals(adm.getUsuario()) && senha_input.equals(adm.getSenha())) {
-                System.out.println("Login realizado com sucesso!\n");
-                exibirMenuADM(); // Exibe menu de administrador
-                break;
-
-                // Verifica se é usuário comum
-            } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
-                System.out.println("Login realizado com sucesso!\n");
-                exibirMenuUSER(); // Exibe menu de usuário
-                break;
-
-            } else {
-                System.out.println("Usuário ou senha inválidos. Tente novamente.\n");
+                } else {
+                    System.out.println("Usuário ou senha inválidos. Tente novamente.\n");
+                    // Se o login falhar, continua o loop para solicitar novamente
+                }
             }
 
             // Leitura da opção de menu após login
@@ -82,7 +85,10 @@ public class Program {
                     volumeGalpao();
                     break;
                 case 8:
-                    System.out.println("Saindo do sistema...");
+                    atualizarStatus();
+                    break;
+                case 9:
+                    System.out.println("Saindo\n");
                     break;
                 default:
                     System.out.println("Opção inválida\n");
@@ -105,7 +111,9 @@ public class Program {
         System.out.println("| 4- Criar Pedido                 |");
         System.out.println("| 5- Listar Pedidos               |");
         System.out.println("| 6- Calcular Distância           |");
-        System.out.println("| 7- Sair                         |");
+        System.out.println("| 7- Volume Galpao                |");
+        System.out.println("| 8- Atualizar Status             |");
+        System.out.println("| 9- Sair                         |");
         System.out.println("+---------------------------------+");
     }
 
@@ -120,7 +128,8 @@ public class Program {
         System.out.println("| 4- Criar Pedido                 |");
         System.out.println("| 5- Listar Pedidos               |");
         System.out.println("| 6- Calcular Distância           |");
-        System.out.println("| 7- Sair                         |");
+        System.out.println("| 7- Volume Galpao                |");
+        System.out.println("| 8- Sair                         |");
         System.out.println("+---------------------------------+");
     }
 
@@ -240,6 +249,35 @@ public class Program {
                 }
                 System.out.println();
             }
+        }
+    }
+
+    // Atualiza o status de um pedido
+    private static void atualizarStatus() {
+        System.out.print("Digite o ID do pedido que deseja atualizar: ");
+        int idPedido = sc.nextInt();
+        sc.nextLine(); // Consumir quebra de linha
+
+        // Busca o pedido pelo ID
+        Pedido pedido = listaPedidos.stream()
+                .filter(p -> p.getId() == idPedido)
+                .findFirst()
+                .orElse(null);
+
+        if (pedido != null) {
+            System.out.println("Status atual do pedido: " + pedido.getStatus());
+            System.out.print("Digite o novo status (PENDENTE, EM_ANDAMENTO, ENTREGUE): ");
+            String novoStatusStr = sc.nextLine().toUpperCase();
+
+            try {
+                Pedido.Status novoStatus = Pedido.Status.valueOf(novoStatusStr);
+                pedido.setStatus(novoStatus); // Atualiza o status do pedido
+                System.out.println("Status atualizado com sucesso!\n");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Status inválido. Tente novamente.\n");
+            }
+        } else {
+            System.out.println("Pedido não encontrado.\n");
         }
     }
 
