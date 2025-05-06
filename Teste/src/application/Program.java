@@ -40,13 +40,16 @@ public class Program {
                     calcularDistancia();
                     break;
                 case 7:
-                    System.out.println("Saindo...");
+                    volumeGalpao();
+                    break;
+                case 8:
+                    System.out.println("Saindo do sistema...");
                     break;
                 default:
                     System.out.println("Opção inválida\n");
                     break;
             }
-        } while (opcao != 7);
+        } while (opcao != 8);
 
         sc.close();
     }
@@ -61,7 +64,8 @@ public class Program {
         System.out.println("| 4- Criar Pedido                 |");
         System.out.println("| 5- Listar Pedidos               |");
         System.out.println("| 6- Calcular Distância           |");
-        System.out.println("| 7- Sair                         |");
+        System.out.println("| 7- Volume do Galpão             |");
+        System.out.println("| 8- Sair                         |");
         System.out.println("+---------------------------------+");
     }
 
@@ -147,5 +151,21 @@ public class Program {
         System.out.println("\n-------- Resultado da Distância ------------------");
         System.out.println("|   " + resultado + "   |");
         System.out.println("--------------------------------------------------\n");
+    }
+
+    private static void volumeGalpao(){
+        int x = 0;
+        int y = 0;
+        int z = 0;
+    
+        int[][][] estoque = new int[x][y][z];
+        System.out.println("Volume do Galpão: ");
+        System.out.print("Digite a largura do galpão: ");
+        x = sc.nextInt();
+        System.out.print("Digite o comprimento do galpão: ");
+        y = sc.nextInt();
+        System.out.print("Digite a altura do galpão: ");
+        z = sc.nextInt();
+        System.out.println("Dimensões do galpão adicionado: " + x + "x" + y + "x" + z);
     }
 }
