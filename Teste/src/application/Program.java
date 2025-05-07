@@ -9,6 +9,7 @@ import entities.Pedido;
 import entities.Usuarios;
 import services.Utilidades;
 
+
 public class Program {
 
     private static List<Item> listaItens = new ArrayList<>();
@@ -22,13 +23,14 @@ public class Program {
         int opcao = 0;
         String controle = "";
 
+
         // login do usuario
         while (true) {
 
             System.out.println("----------- Login -----------");
             System.out.print("Digite seu usuário: ");
             String usuario_input = sc.nextLine();
-
+    
             System.out.print("Digite sua senha: ");
             String senha_input = sc.nextLine();
 
@@ -38,7 +40,7 @@ public class Program {
                 break;
             } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
                 System.out.println("Login realizado com sucesso!\n");
-                controle = "user";
+                controle = "user";  
                 break;
             } else {
                 System.out.println("Usuário ou senha inválidos. Tente novamente.\n");
@@ -47,7 +49,7 @@ public class Program {
 
         do {
 
-            // controle para exibir o menu correto
+            //controle para exibir o menu correto
 
             if (controle == "admin") {
                 Utilidades.exibirMenuADM();
