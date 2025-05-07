@@ -51,9 +51,9 @@ public class Program {
 
             //controle para exibir o menu correto
 
-            if (controle == "admin") {
+            if (controle.equals("admin")) {
                 Utilidades.exibirMenuADM();
-            } else if (controle == "user") {
+            } else if (controle.equals("user")) {
                 Utilidades.exibirMenuUSER();
             }
 
