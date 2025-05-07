@@ -27,17 +27,18 @@ Se o usuário digita um caractere onde deveria ser um número, o programa quebra
         System.out.println("Entrada inválida.");
         sc.next(); // limpar buffer
     }
+       
 ----------------------------------------------------------------------------------------------
 
 3. --Separação de responsabilidades:
 
 A classe Utilidades faz de tudo. Considere separá-la em:
 
-- ProdutoService
+-ProdutoService
 
-- PedidoService
+-PedidoService
 
-- MenuService
+-MenuService
 
 ----------------------------------------------------------------------------------------------
 
