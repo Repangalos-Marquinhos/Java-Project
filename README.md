@@ -12,9 +12,9 @@ Crie um gerador automático de IDs (com uma variável estática que incrementa):
     E no método de cadastro:
 
     int id = proximoIdItem++;
+-----------------------------------------------------
 
-----------------------------------------------------------------------------------------------
-
+-----------------------------------------
 2. --Validação de entrada do usuário:
 
 Se o usuário digita um caractere onde deveria ser um número, o programa quebra.
@@ -27,18 +27,17 @@ Se o usuário digita um caractere onde deveria ser um número, o programa quebra
         System.out.println("Entrada inválida.");
         sc.next(); // limpar buffer
     }
-
 ----------------------------------------------------------------------------------------------
 
 3. --Separação de responsabilidades:
 
 A classe Utilidades faz de tudo. Considere separá-la em:
 
--ProdutoService
+- ProdutoService
 
--PedidoService
+- PedidoService
 
--MenuService
+- MenuService
 
 ----------------------------------------------------------------------------------------------
 
