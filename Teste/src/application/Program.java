@@ -12,11 +12,11 @@ import services.Utilidades;
 
 public class Program {
 
-    private static List<Item> listaItens = new ArrayList<>();
-    private static List<Pedido> listaPedidos = new ArrayList<>();
-    private static Scanner sc = new Scanner(System.in);
-    private static Usuarios user = new Usuarios("user", "123");
-    private static Usuarios adm = new Usuarios("admin", "123");
+    private static final List<Item> listaItens = new ArrayList<>();
+    private static final List<Pedido> listaPedidos = new ArrayList<>();
+    private static final Scanner sc = new Scanner(System.in);
+    private static final Usuarios user = new Usuarios("user", "123");
+    private static final Usuarios adm = new Usuarios("admin", "123");
 
     public static void main(String[] args) {
 

@@ -54,7 +54,7 @@ public class Utilidades {
         int quantidade = sc.nextInt();
 
         System.out.print("Digite o tamanho do produto: ");
-        double tamanho = sc.nextDouble();
+        String tamanho = sc.nextLine();
 
         sc.nextLine();
 
@@ -89,7 +89,9 @@ public class Utilidades {
             System.out.println("Nenhum produto cadastrado.\n");
         } else {
             for (Item i : listaItens) {
+                System.out.println("--------------------------------------------------");
                 System.out.println(i);
+                System.out.println("--------------------------------------------------");
             }
         }
     }

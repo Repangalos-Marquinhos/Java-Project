@@ -5,7 +5,7 @@ public class Item {
     private int id;
     private int lote;
     private int quantidade;
-    private double tamanho;
+    private String tamanho;
     private String descricao;
     private String categoria;
     private String prazo;
@@ -14,7 +14,7 @@ public class Item {
 
     }
 
-    public Item(int id, int lote, int quantidade, double tamanho, String descricao, String categoria, String prazo) {
+    public Item(int id, int lote, int quantidade, String tamanho, String descricao, String categoria, String prazo) {
         this.id = id;
         this.lote = lote;
         this.quantidade = quantidade;
@@ -47,11 +47,11 @@ public class Item {
         this.quantidade = quantidade;
     }
 
-    public double getTamanho() {
+    public String getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(double tamanho) {
+    public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
 

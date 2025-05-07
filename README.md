@@ -1,56 +1,106 @@
-# Java-Project
+#  MELHORIAS NO CÓDIGO
 
-Projeto Java
+1. --Gerenciamento de IDs:
 
-Gerenciamento de Centro de Distribuição
------------------------------------------------------------------------------------
+Atualmente o ID de produto e pedido é inserido manualmente. Isso pode gerar conflitos.
 
-Funcionalidades:
+Crie um gerador automático de IDs (com uma variável estática que incrementa):
 
-Usuario:
+    private static int proximoIdItem = 1;
+    private static int proximoIdPedido = 1;
 
--Cadastrar Itens; --
+    E no método de cadastro:
 
--Controle de Lotes;
+    int id = proximoIdItem++;
 
--Historico de Movimentação; 
+----------------------------------------------------------------------------------------------
 
--Usuários e Permissões
+2. --Validação de entrada do usuário:
 
--Otimização de Roteirização
+Se o usuário digita um caractere onde deveria ser um número, o programa quebra.
 
--Admnistrar Prazos e Urgencia;
+➡️ Use try-catch ou valide com hasNextInt():
 
------------------------------------------------------------------------------------
+    if (sc.hasNextInt()) {
+       int opcao = sc.nextInt();
+    } else {
+        System.out.println("Entrada inválida.");
+        sc.next(); // limpar buffer
+    }
 
-Transportadora:
+----------------------------------------------------------------------------------------------
 
--Alimentação de Estoque; --
+3. --Separação de responsabilidades:
 
--Cálculo de Custos e Frete;
+A classe Utilidades faz de tudo. Considere separá-la em:
 
--Retirar Produtos; -
+-ProdutoService
 
--Atualizar Movimentação;
+-PedidoService
+
+-MenuService
+
+----------------------------------------------------------------------------------------------
+
+4. --Cadastro de usuários:
+
+Atualmente, os usuários estão hardcoded. Implemente:
+
+-Cadastro de novos usuários (com opção de criar conta)
+
+-Diferenciação de perfis (ex: mais permissões ao admin)
+
+----------------------------------------------------------------------------------------------
+
+5. --Filtro de pedidos por status:
+
+Permita listar pedidos por PENDENTE, ENTREGUE, etc.
+
+----------------------------------------------------------------------------------------------
+
+6. --Usar O Date/Time
+
+para facilitar o uso do prazo de entrega.
+
+----------------------------------------------------------------------------------------------
+
+# EXTRAS (Funcionalidades Avançadas)
 
 
-----
-teste comit discord
-teste minha branch
-----
+1. Histórico de alterações
 
------------------------------------------------------------------------------------
+Guarde um log com:
 
-Classes:
+-Quem fez o login
 
--Principal
+-Quando o produto foi cadastrado ou retirado
 
--Usuario
+-Quando o status do pedido mudou
 
--Pedido
+----------------------------------------------------------------------------------------------
 
--Itens
+2. Relatórios
 
--Transportadora
+Produtos com menor quantidade em estoque
+
+Pedidos entregues vs pendentes
+
+----------------------------------------------------------------------------------------------
+
+3. Interface Gráfica (GUI com JavaFX ou Swing)
+
+Futuramente, migrar o sistema para uma interface gráfica para facilitar o uso por usuários.
+
+----------------------------------------------------------------------------------------------
+
+4. Integração com banco de dados
+
+integrar o projeto inteiro com BD, facilitando o armazenamentos de dados longevidade do projeto
+
+----------------------------------------------------------------------------------------------
+
+
+
+
 
 
