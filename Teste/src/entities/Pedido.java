@@ -7,7 +7,6 @@ public class Pedido {
     private String endereco;
     private String deadline;
     private Status status; // Status do pedido (PENDENTE, EM_ANDAMENTO, ENTREGUE)
-    //private Status status; // Status do pedido (PENDENTE, EM_ANDAMENTO, ENTREGUE)
     public enum Status {
         PENDENTE,
         EM_ANDAMENTO,
