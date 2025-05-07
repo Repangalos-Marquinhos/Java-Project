@@ -99,9 +99,5 @@ public class Item {
         this.quantidade += quantidade;
     }
 
-    public void listarProdutos() {
-        System.out.println("ID: " + id + "\nLote: " + lote + "\nQuantidade: " + quantidade + "\nTamanho: " + tamanho
-                + "\nDescrição: " + descricao + "\nCategoria: " + categoria + "\nPrazo: " + prazo);
-    }
 
 }

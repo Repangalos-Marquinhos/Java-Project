@@ -80,7 +80,7 @@ public class Program {
                     Utilidades.calcularDistancia(sc);
                     break;
                 case 7:
-                    Utilidades.volumeGalpao(sc);
+                   // Utilidades.volumeGalpao(sc);
                     break;
                 case 8:
                     Utilidades.atualizarStatus(sc, listaPedidos);

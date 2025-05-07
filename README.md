@@ -64,6 +64,10 @@ para facilitar o uso do prazo de entrega.
 
 ----------------------------------------------------------------------------------------------
 
+7. -- colocar em uso os metodos ADDquantidadeproduto
+
+na classe item, as funcoes quantidades prod.
+
 # EXTRAS (Funcionalidades Avançadas)
 
 

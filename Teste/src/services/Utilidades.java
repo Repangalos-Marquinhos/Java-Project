@@ -192,7 +192,7 @@ public class Utilidades {
         System.out.println("--------------------------------------------------\n");
     }
 
-    public static void volumeGalpao(Scanner sc) {
+    /*public static void volumeGalpao(Scanner sc) {
         System.out.print("Digite a largura do galpão: ");
         int x = sc.nextInt();
 
@@ -202,6 +202,5 @@ public class Utilidades {
         System.out.print("Digite a altura do galpão: ");
         int z = sc.nextInt();
 
-        System.out.println("Dimensões do galpão adicionado: " + x + "x" + y + "x" + z);
-    }
+        */
 }
