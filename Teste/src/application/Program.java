@@ -9,7 +9,6 @@ import entities.Pedido;
 import entities.Usuarios;
 import services.Utilidades;
 
-
 public class Program {
 
     private static List<Item> listaItens = new ArrayList<>();
@@ -21,28 +20,39 @@ public class Program {
     public static void main(String[] args) {
 
         int opcao = 0;
+        String controle = "";
 
-        System.out.println("----------- Login -----------");
-        System.out.print("Digite seu usuário: ");
-        String usuario_input = sc.nextLine();
+        // login do usuario
+        while (true) {
 
-        System.out.print("Digite sua senha: ");
-        String senha_input = sc.nextLine();
+            System.out.println("----------- Login -----------");
+            System.out.print("Digite seu usuário: ");
+            String usuario_input = sc.nextLine();
+
+            System.out.print("Digite sua senha: ");
+            String senha_input = sc.nextLine();
+
+            if (usuario_input.equals(adm.getUsuario()) && senha_input.equals(adm.getSenha())) {
+                System.out.println("Login realizado com sucesso!\n");
+                controle = "admin";
+                break;
+            } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
+                System.out.println("Login realizado com sucesso!\n");
+                controle = "user";
+                break;
+            } else {
+                System.out.println("Usuário ou senha inválidos. Tente novamente.\n");
+            }
+        }
 
         do {
-            while (true) {
-                if (usuario_input.equals(adm.getUsuario()) && senha_input.equals(adm.getSenha())) {
-                    System.out.println("Login realizado com sucesso!\n");
-                    Utilidades.exibirMenuADM();
-                    break;
-                } else if (usuario_input.equals(user.getUsuario()) && senha_input.equals(user.getSenha())) {
-                    System.out.println("Login realizado com sucesso!\n");
-                    Utilidades.exibirMenuUSER();
-                    break;
-                } else {
-                    System.out.println("Usuário ou senha inválidos. Tente novamente.\n");
-                    break;
-                }
+
+            // controle para exibir o menu correto
+
+            if (controle == "admin") {
+                Utilidades.exibirMenuADM();
+            } else if (controle == "user") {
+                Utilidades.exibirMenuUSER();
             }
 
             opcao = sc.nextInt();
