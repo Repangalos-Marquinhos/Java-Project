@@ -97,6 +97,7 @@ public class Utilidades {
     }
 
     public static void criarPedido(Scanner sc, List<Item> listaItens, List<Pedido> listaPedidos) {
+        
         System.out.println("----------- Criar Pedido -----------");
 
         System.out.print("Digite o ID do pedido: ");

@@ -14,7 +14,9 @@ public class Program {
 
     private static final List<Item> listaItens = new ArrayList<>();
     private static final List<Pedido> listaPedidos = new ArrayList<>();
+
     private static final Scanner sc = new Scanner(System.in);
+    // Criando os usuarios para o login
     private static final Usuarios user = new Usuarios("user", "123");
     private static final Usuarios adm = new Usuarios("admin", "123");
 
